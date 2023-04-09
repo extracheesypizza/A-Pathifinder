@@ -42,7 +42,7 @@ float getDistance(Node *&cur, Node *&neighbour)
     float diffX = cur->getX() - neighbour->getX();
     float diffY = cur->getY() - neighbour->getY();
 
-    return diffX * diffX + diffY * diffY;
+    return sqrt(diffX * diffX + diffY * diffY);
 }
 
 bool isNumeric(string str)
