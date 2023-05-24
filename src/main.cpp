@@ -1,6 +1,4 @@
-#include <iostream>
-
-#include "Application.cpp"
+#include "Application.hpp"
 
 using namespace std;
 

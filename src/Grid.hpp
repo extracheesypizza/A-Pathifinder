@@ -1,8 +1,6 @@
 #ifndef GRID_H
 #define GRID_H
 
-#include <iostream>
-
 #include "Functions.hpp"
 
 using namespace std;

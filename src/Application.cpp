@@ -1,9 +1,5 @@
 #include "Application.hpp"
 
-#include "Astar.cpp"
-#include "Grid.cpp"
-#include "Viewer.cpp"
-
 void Application::handleResize(sf::Event event)
 {
     sf::Vector2u windowSize;

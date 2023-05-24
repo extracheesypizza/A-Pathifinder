@@ -4,16 +4,17 @@ project(AstarPathfind LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(BUILD_SHARED_LIBS FALSE)
 
-add_executable(AstarPathfind main.cpp)
+add_executable(AstarPathfind main.cpp Application.cpp Astar.cpp Grid.cpp Node.cpp Viewer.cpp)
 
-set(SFML_DIR "SFML/lib/cmake/SFML")
+FILE(GLOB_RECURSE LibFiles "*.hpp")
+add_custom_target(headers SOURCES ${LibFiles})
+
 target_link_libraries(AstarPathfind sfml-graphics)
 
-FILE(COPY ../res/arial.ttf DESTINATION "${CMAKE_BINARY_DIR}")
+include_directories(${CMAKE_CURRENT_LIST_DIR}/SFML/include)
+target_link_libraries(AstarPathfind ${CMAKE_CURRENT_LIST_DIR}/SFML/lib)
 
-set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")
-find_package(SFML 2.5.1 REQUIRED graphics window system)
+find_package(SFML REQUIRED graphics network audio window system)
 
 

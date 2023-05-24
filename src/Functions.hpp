@@ -2,29 +2,27 @@
 #define FUNCTIONS_H
 
 #include <cmath>
-#include <iostream>
 #include <sstream>
-#include <vector>
 
-#include "Node.cpp"
+#include "Node.hpp"
 
 using namespace std;
 
 // Bool functions for node accessability
-bool inBounds(int &x, int &y, int &i, int &j, int &n)
+static bool inBounds(int &x, int &y, int &i, int &j, int &n)
 {
     // check if the node is inside the grid
     return x + i >= 0 && x + i < n && y + j >= 0 && y + j < n;
 }
 
-bool notCurrent(int &i, int &j)
+static bool notCurrent(int &i, int &j)
 {
     // check if the node is not the current one
     return !(i == 0 && j == 0);
 }
 
 // A* helper functions
-Node *lowestFscore(vector<Node *> &open)
+static Node *lowestFscore(vector<Node *> &open)
 {
     Node *res;
     float min = __FLT_MAX__;
@@ -37,7 +35,7 @@ Node *lowestFscore(vector<Node *> &open)
     return res;
 }
 
-float getDistance(Node *&cur, Node *&neighbour)
+static float getDistance(Node *&cur, Node *&neighbour)
 {
     float diffX = cur->getX() - neighbour->getX();
     float diffY = cur->getY() - neighbour->getY();
@@ -45,7 +43,7 @@ float getDistance(Node *&cur, Node *&neighbour)
     return sqrt(diffX * diffX + diffY * diffY);
 }
 
-bool isNumeric(string str)
+static bool isNumeric(string str)
 {
     for(int i = 0; i < str.length(); i++)
         if(!isdigit(str[i]))
@@ -53,7 +51,7 @@ bool isNumeric(string str)
     return true;
 }
 
-int toInt(string str)
+static int toInt(string str)
 {
     stringstream conversion;
     int res;

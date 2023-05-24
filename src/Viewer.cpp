@@ -5,7 +5,7 @@ void Viewer::setupWindow(sf::RenderWindow *window)
     window_ = window;
     if(!font_.loadFromFile("arial.ttf"))
     {
-        std::cout << "ERROR LOADING FONT" << std::endl;
+        // std::cout << "ERROR LOADING FONT" << std::endl;
         return;
     }
     drawStartup("");

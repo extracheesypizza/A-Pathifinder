@@ -1,10 +1,6 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <vector>
-
 #include "Astar.hpp"
 
 #define startUnicode 122

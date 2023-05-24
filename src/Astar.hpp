@@ -1,11 +1,6 @@
 #ifndef ASTAR_H
 #define ASTAR_H
 
-#include <SFML/Graphics.hpp>
-#include <cmath>
-#include <iostream>
-#include <vector>
-
 #include "Viewer.hpp"
 
 class AStar

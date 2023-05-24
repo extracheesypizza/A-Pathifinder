@@ -2,9 +2,6 @@
 #define VIEWER_H
 
 #include <SFML/Graphics.hpp>
-#include <cmath>
-#include <iostream>
-#include <vector>
 
 #include "Grid.hpp"
 
