@@ -1,12 +1,12 @@
 #include "Grid.hpp"
 
 void Grid::setWall(int &x, int &y, bool &b) { grid_[x][y]->setWall(b); }
-bool Grid::getWall(int &x, int &y) { return grid_[x][y]->isWall(); }
+bool Grid::getWall(int &x, int &y) const { return grid_[x][y]->isWall(); }
 
-int Grid::getSize() { return grid_.size(); }
-Node *Grid::getNode(int x, int y) { return grid_[x][y]; }
+int Grid::getSize() const { return grid_.size(); }
+Node *Grid::getNode(int x, int y) const { return grid_[x][y]; }
 
-Node *Grid::getStartNode() { return startNode_; }
+Node *Grid::getStartNode() const { return startNode_; }
 
 void Grid::setStartNode(Node *node)
 {
@@ -28,7 +28,7 @@ void Grid::setStartNode(Node *node)
     }
 }
 
-Node *Grid::getGoalNode() { return goalNode_; }
+Node *Grid::getGoalNode() const { return goalNode_; }
 void Grid::setGoalNode(Node *node)
 {
     if(goalNode_)
@@ -73,7 +73,7 @@ void Grid::resetNodes()
         }
 }
 
-bool Grid::notWall(int &x, int &y, int &i, int &j)
+bool Grid::notWall(int &x, int &y, int &i, int &j) const
 {
     // check if the node is not a wall or behind a wall
     if(abs(i) + abs(j) > 1)
@@ -83,7 +83,7 @@ bool Grid::notWall(int &x, int &y, int &i, int &j)
         return this->getNode(x + i, y + j)->isWall() == 0;
 }
 
-vector<Node *> Grid::getNeighbours(Node *&cur)
+vector<Node *> Grid::getNeighbours(Node *&cur) const
 {
     vector<Node *> res;
     int x = cur->getX();

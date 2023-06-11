@@ -1,20 +1,12 @@
 #include "Application.hpp"
 
-void Application::handleResize(sf::Event event)
+void Application::handleResize()
 {
-    sf::Vector2u windowSize;
+    int min = window_->getSize().x ? window_->getSize().y : window_->getSize().x < window_->getSize().y;
 
-    float min;
-    if(event.size.width < event.size.height)
-        min = event.size.width;
-    else
-        min = event.size.height;
-
-    windowSize.x = min;
-    windowSize.y = min;
+    sf::Vector2u windowSize(min, min);
 
     window_->setSize(windowSize);
-
     window_->setView(sf::View(sf::FloatRect(0, 0, min, min)));
 }
 
@@ -23,18 +15,22 @@ void Application::handleEventStartup(sf::Event event, string& number)
     if(event.type == sf::Event::Closed)
         window_->close();
 
-    if(event.type == sf::Event::Resized)
-        handleResize(event);
+    else if(event.type == sf::Event::Resized)
+        handleResize();
 
-    if(event.type == sf::Event::TextEntered)
+    else if(event.type == sf::Event::TextEntered)
+    {
         if(event.text.unicode >= 48 && event.text.unicode <= 57)
             number += event.text.unicode;
+    }
 
-    if(event.type == sf::Event::KeyPressed)
+    else if(event.type == sf::Event::KeyPressed)
     {
         if(event.key.code == sf::Keyboard::Enter)
+        {
             if(isNumeric(number) && number != "")
                 executeGrid(toInt(number));
+        }
 
         if(event.key.code == sf::Keyboard::Backspace && number.size() != 0)
             number.erase(number.size() - 1);
@@ -121,20 +117,20 @@ void Application::handleEventGrid(sf::Event event, int& curMode)
     if(event.type == sf::Event::Closed)
         window_->close();
 
-    if(event.type == sf::Event::Resized)
-        handleResize(event);
+    else if(event.type == sf::Event::Resized)
+        handleResize();
 
-    if(event.type == sf::Event::TextEntered)
+    else if(event.type == sf::Event::TextEntered)
         switchCurrentMode(event, curMode);
 
-    if(event.type == sf::Event::MouseButtonPressed)
+    else if(event.type == sf::Event::MouseButtonPressed)
     {
         Node* prevNode = nullptr;
         while(sf::Mouse::isButtonPressed(sf::Mouse::Left))  //
             setNodeStates(curMode, prevNode);
     }
 
-    if(event.type == sf::Event::KeyPressed)
+    else if(event.type == sf::Event::KeyPressed)
     {
         if(event.key.code == sf::Keyboard::Enter)
         {

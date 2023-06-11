@@ -12,13 +12,13 @@ void Viewer::setupWindow(sf::RenderWindow *window)
     // window_->setFramerateLimit(60);
 }
 
-sf::Font Viewer::getFont()
+sf::Font Viewer::getFont() const
 {
     // return working font
     return font_;
 }
 
-void Viewer::drawStartup(string s)
+void Viewer::drawStartup(string s) const
 {
     window_->clear(sf::Color::White);
 
@@ -55,7 +55,7 @@ void Viewer::drawStartup(string s)
     window_->display();
 }
 
-void Viewer::drawGrid(Grid *grid)
+void Viewer::drawGrid(Grid *grid) const
 {
     window_->clear(sf::Color::White);
 
@@ -83,16 +83,16 @@ void Viewer::drawGrid(Grid *grid)
             if(find(open->begin(), open->end(), curNode) != open->end())
                 node.setFillColor(sf::Color::Green);
 
-            if(find(closed->begin(), closed->end(), curNode) != closed->end())
+            else if(find(closed->begin(), closed->end(), curNode) != closed->end())
                 node.setFillColor(sf::Color::Red);
 
-            if(curNode->isWall() == 1)
+            else if(curNode->isWall() == 1)
                 node.setFillColor(sf::Color::Black);
 
-            if(curNode->isStart())
+            else if(curNode->isStart())
                 node.setFillColor(sf::Color::Blue);
 
-            if(curNode->isGoal())
+            else if(curNode->isGoal())
                 node.setFillColor(sf::Color::Cyan);
 
             window_->draw(node);

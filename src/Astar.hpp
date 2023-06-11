@@ -1,5 +1,5 @@
-#ifndef ASTAR_H
-#define ASTAR_H
+#ifndef ASTAR_HPP
+#define ASTAR_HPP
 
 #include "Viewer.hpp"
 
@@ -16,4 +16,4 @@ class AStar
     void pathfind(Grid *grid, Viewer *view);
 };
 
-#endif  // ASTAR_H
+#endif  // ASTAR_HPP

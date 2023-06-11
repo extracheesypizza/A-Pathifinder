@@ -1,5 +1,5 @@
-#ifndef FUNCTIONS_H
-#define FUNCTIONS_H
+#ifndef FUNCTIONS_HPP
+#define FUNCTIONS_HPP
 
 #include <cmath>
 #include <sstream>
@@ -60,4 +60,4 @@ static int toInt(string str)
     return res;
 }
 
-#endif  // FUNCTIONS_H
+#endif  // FUNCTIONS_HPP

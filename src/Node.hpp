@@ -1,7 +1,5 @@
-#ifndef NODE_H
-#define NODE_H
-
-#include <vector>
+#ifndef NODE_HPP
+#define NODE_HPP
 
 class Node
 {
@@ -20,26 +18,26 @@ class Node
     ~Node();
 
     // Methods
-    int getX();
-    int getY();
+    int getX() const;
+    int getY() const;
 
     void setWall(bool b);
-    bool isWall();
+    bool isWall() const;
 
     void setGScore(float f);
-    float getGScore();
+    float getGScore() const;
 
     void setFScore(float f);
-    float getFScore();
+    float getFScore() const;
 
     void setStartState(bool b);
     void setGoalState(bool b);
 
-    Node* getParent();
+    Node* getParent() const;
     void setParent(Node* n);
 
-    bool isStart();
-    bool isGoal();
+    bool isStart() const;
+    bool isGoal() const;
 };
 
-#endif  // NODE_H
+#endif  // NODE_HPP

@@ -1,9 +1,11 @@
-#ifndef GRID_H
-#define GRID_H
+#ifndef GRID_HPP
+#define GRID_HPP
+
+#include <vector>
 
 #include "Functions.hpp"
 
-using namespace std;
+using std::vector;
 
 class Grid
 {
@@ -32,17 +34,17 @@ class Grid
     ~Grid();
 
     void setWall(int &x, int &y, bool &b);
-    bool getWall(int &x, int &y);
-    int getSize();
-    Node *getNode(int x, int y);
+    bool getWall(int &x, int &y) const;
+    int getSize() const;
+    Node *getNode(int x, int y) const;
 
-    Node *getStartNode();
+    Node *getStartNode() const;
     void setStartNode(Node *node);
 
-    Node *getGoalNode();
+    Node *getGoalNode() const;
     void setGoalNode(Node *node);
 
-    bool notWall(int &x, int &y, int &i, int &j);
+    bool notWall(int &x, int &y, int &i, int &j) const;
 
     vector<Node *> *getOpenSet();
     vector<Node *> *getClosedSet();
@@ -56,9 +58,7 @@ class Grid
 
     void resetNodes();
 
-    void statistics();
-
-    vector<Node *> getNeighbours(Node *&cur);
+    vector<Node *> getNeighbours(Node *&cur) const;
 };
 
-#endif  // GRID_H
+#endif  // GRID_HPP
