@@ -8,8 +8,8 @@ This application visualizes how the algorithm would work on a 'weightless' grid:
 ## How to build
 1. ```git clone``` the repository
 2. Run  ```git submodule init && git submodule update``` to download the SFML Library (it will take some time and may seem stuck, but be patient)
-3.a For Windows run ```cmake -S . -B -G "MinGW Makefiles" res/ -DBUILD_SHARED_LIBS=OFF && cd res && make && .\AStarPathfind```
-3.b For MacOS/Linux run ```cmake -S . -B res/ -DBUILD_SHARED_LIBS=OFF && cd res && make && ./AStarPathfind```
+3. For Windows run ```cmake -S . -B -G "MinGW Makefiles" res/ -DBUILD_SHARED_LIBS=OFF && cd res && make && .\AStarPathfind```
+4. For MacOS/Linux run ```cmake -S . -B res/ -DBUILD_SHARED_LIBS=OFF && cd res && make && ./AStarPathfind```
    
 ## How to use:
 - Firstly, enter the size of the grid you would like to have and hit 'Enter'. 
